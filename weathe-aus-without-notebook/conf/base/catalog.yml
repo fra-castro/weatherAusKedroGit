@@ -1,0 +1,17 @@
+# conf/base/catalog.yml
+
+raw_data:
+  type: kedro_datasets.pandas.csv_dataset.CSVDataset
+  filepath: data/01_raw/weatherAUS.csv
+  load_args:
+    on_bad_lines: 'skip' # Ignora líneas con formato incorrecto
+    encoding: 'utf-8'       # Intenta con esta codificación
+
+data_summary:
+  type: kedro_datasets.json.json_dataset.JSONDataset
+  filepath: data/02_intermediate/data_summary.json
+
+# Output para las visualizaciones
+visualizations:
+  type: kedro_datasets.json.json_dataset.JSONDataset
+  filepath: data/08_reporting/visualization_paths.json
